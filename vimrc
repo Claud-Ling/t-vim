@@ -206,9 +206,9 @@ function! TracyoneHasPlugin(name)
     return !empty(globpath(&rtp, pat))
 endfunction
 
-if TracyoneHasPlugin("tagbar") && TracyoneHasPlugin("vim-fugitive")
+if TracyoneHasPlugin("tagbar") && TracyoneHasPlugin("vim-gita")
     set statusline=%<%t%m%r%h%w%{tagbar#currenttag('[%s]','')}
-    set statusline+=%=[%{(&fenc!=''?&fenc:&enc)}\|%{&ff}\|%Y][%l,%v][%p%%]%{fugitive#statusline()}
+    set statusline+=%=[%{(&fenc!=''?&fenc:&enc)}\|%{&ff}\|%Y][%l,%v][%p%%]%{gita#statusline#format('[%lb]')}
     set statusline+=[%{strftime(\"%m/%d\-\%H:%M\")}]
 else
     set statusline=%<%t%m%r%h%w
@@ -713,7 +713,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky',{'on': 'CtrlPFunky'}
 Plug 'fisadev/vim-ctrlp-cmdpalette',{'on': 'CtrlPCmdPalette'}
-Plug 'tpope/vim-fugitive'
+Plug 'lambdalisue/vim-gita'
 Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 Plug 'jaxbot/github-issues.vim', { 'on': 'Gissue' }
 Plug 'Raimondi/delimitMate'
@@ -1466,11 +1466,11 @@ nnoremap <leader>ms :Toc<cr>
 "}}}
 
 " Git releate ---------------------{{{
-nnoremap <F3> :Gstatus<cr>
+nnoremap <F3> :Gita status<cr>
 " Open git status window
-nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gs :Gita status<cr>
 " Open github url
-nnoremap <Leader>gh :Gbrowse<cr>
+nnoremap <Leader>gh :Gita browse<cr>
 " Open git log( browser mode)
 nnoremap <Leader>gl :Gitv --all<cr>
 " Open git log(file mode)
