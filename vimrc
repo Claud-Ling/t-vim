@@ -714,7 +714,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky',{'on': 'CtrlPFunky'}
 Plug 'fisadev/vim-ctrlp-cmdpalette',{'on': 'CtrlPCmdPalette'}
 Plug 'lambdalisue/vim-gita'
-Plug 'gregsexton/gitv', { 'on': 'Gitv' }
+Plug 'cohama/agit.vim'
 Plug 'jaxbot/github-issues.vim', { 'on': 'Gissue' }
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/genutils'
@@ -1472,15 +1472,15 @@ nnoremap <Leader>gs :Gita status<cr>
 " Open github url
 nnoremap <Leader>gh :Gita browse<cr>
 " Open git log( browser mode)
-nnoremap <Leader>gl :Gitv --all<cr>
+nnoremap <Leader>gl :Agit<cr>
 " Open git log(file mode)
-nnoremap <Leader>gL :Gitv! --all<cr>
+nnoremap <Leader>gL :AgitFile<cr>
 " Open git log(file mode)
-vnoremap <leader>gL :Gitv! --all<cr>
+vnoremap <leader>gL :AgitFile<cr>
 " Open git blame windows
 nnoremap <Leader>gb :Gblame<cr>
 " git diff current file (vimdiff)
-nnoremap <Leader>gd :Gdiff<cr>
+nnoremap <Leader>gd :AgitDiff<cr>
 " list git issue
 nnoremap <Leader>gi :Gissue<cr>
 " git push origin master
@@ -1671,7 +1671,7 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 " toggle coding style 
 nnoremap <leader>tc :call TracyoneCodingStypeToggle()<cr>
-function DrawItToggle()
+function! DrawItToggle()
     let l:ret = te#utils#GetError("DrawIt","already on")
     if l:ret != 0
         :DrawIt!
