@@ -655,7 +655,7 @@ endif
 
 Plug 'tracyone/hex2ascii.vim', { 'do': 'make' }
 Plug 'thinca/vim-qfreplace'
-Plug 'vim-scripts/verilog.vim'
+Plug 'vim-scripts/verilog.vim',{'for','verilog'}
 Plug 'easymotion/vim-easymotion', { 'on': [ '<Plug>(easymotion-lineforward)',
             \ '<Plug>(easymotion-linebackward)','<Plug>(easymotion-overwin-w)' ]}
 Plug 'thinca/vim-quickrun'
@@ -686,7 +686,7 @@ Plug 'jaxbot/github-issues.vim', { 'on': 'Gissue' }
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/genutils'
 Plug 'itchyny/calendar.vim', { 'on': 'Calendar'}
-Plug 'arecarn/selection.vim' | Plug 'arecarn/crunch.vim'
+Plug 'arecarn/selection.vim' | Plug 'arecarn/crunch.vim',{'on':'Crunch'}
 "Plug 'youjumpiwatch/vim-neoeclim'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips', { 'on': [] } | Plug 'tracyone/snippets'
@@ -716,7 +716,7 @@ if s:is_nvim == 0
     else
         Plug 'Shougo/vimproc.vim', { 'do': 'mingw32-make.exe -f make_mingw64.mak' }
     endif
-    Plug 'Shougo/vimshell.vim'
+    Plug 'Shougo/vimshell.vim',{'on':'VimShell'}
     Plug 'vim-scripts/YankRing.vim'
 else
     Plug 'mattn/ctrlp-register',{'on': 'CtrlPRegister'}
@@ -734,7 +734,7 @@ Plug 'adah1972/fencview',{'on': 'FencManualEncoding'}
 Plug 'vim-scripts/DrawIt',{'on': 'DrawIt'}
 Plug 'mbbill/VimExplorer',{'on': 'VE'}
 Plug 'vim-scripts/renamer.vim',{'on': 'Ren'}
-Plug  'hari-rangarajan/CCTree'
+Plug 'hari-rangarajan/CCTree'
 Plug 'tracyone/mark.vim'
 Plug 'tpope/vim-repeat' "repeat enhance
 Plug 'Shougo/vinarise.vim'
@@ -748,7 +748,7 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'}
 Plug 'osyo-manga/vim-over'
 Plug 'rhysd/github-complete.vim'
-Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim',{'on':'AsyncRun'}
 " Open plug status windows
 nnoremap <Leader>ap :PlugStatus<cr>:only<cr>
 call plug#end()
