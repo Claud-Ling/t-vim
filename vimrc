@@ -737,7 +737,7 @@ Plug 'vim-scripts/renamer.vim',{'on': 'Ren'}
 Plug 'hari-rangarajan/CCTree'
 Plug 'tracyone/mark.vim'
 Plug 'tpope/vim-repeat' "repeat enhance
-Plug 'Shougo/vinarise.vim'
+Plug 'Shougo/vinarise.vim',{'on': 'Vinarise'}
 Plug 'tracyone/love.vim'
 Plug 't9md/vim-choosewin'
 Plug 'itchyny/vim-cursorword'
