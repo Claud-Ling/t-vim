@@ -691,9 +691,9 @@ Plug 'arecarn/selection.vim' | Plug 'arecarn/crunch.vim'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips', { 'on': [] } | Plug 'tracyone/snippets'
 Plug 'ianva/vim-youdao-translater', {'do': 'pip install requests --user','on': ['Ydc','Ydv']}
-Plug 'iamcco/markdown-preview.vim'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.vim',{'for': 'markdown'}
+Plug 'mzlogin/vim-markdown-toc',{'for': 'markdown'}
+Plug 'plasticboy/vim-markdown',{'for': 'markdown'}
 if(!s:is_win)
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'lucidstack/ctrlp-tmux.vim',{'on': 'CtrlPTmux'}
