@@ -655,7 +655,7 @@ endif
 
 Plug 'tracyone/hex2ascii.vim', { 'do': 'make' }
 Plug 'thinca/vim-qfreplace'
-Plug 'vim-scripts/verilog.vim',{'for','verilog'}
+Plug 'vim-scripts/verilog.vim',{'for': 'verilog'}
 Plug 'easymotion/vim-easymotion', { 'on': [ '<Plug>(easymotion-lineforward)',
             \ '<Plug>(easymotion-linebackward)','<Plug>(easymotion-overwin-w)' ]}
 Plug 'thinca/vim-quickrun'
