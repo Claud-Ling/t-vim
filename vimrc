@@ -748,7 +748,7 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'junegunn/goyo.vim',{'on': 'Goyo'}
 Plug 'osyo-manga/vim-over'
 Plug 'rhysd/github-complete.vim'
-Plug 'skywind3000/asyncrun.vim',{'on':'AsyncRun'}
+Plug 'skywind3000/asyncrun.vim'
 " Open plug status windows
 nnoremap <Leader>ap :PlugStatus<cr>:only<cr>
 call plug#end()
