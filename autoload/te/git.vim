@@ -47,6 +47,7 @@ endfunction
 " a complet function that is needed by input function
 " get all the remote branch name into a string seperate by CR
 function! te#git#GetRemoteBr(A,L,P) abort
+    let l:temp=a:A.a:L.a:P
     let l:all_remote_name=systemlist('git branch -r')
     if empty(l:all_remote_name) == 1
         call te#utils#EchoWarning('No remote name found!')
