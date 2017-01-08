@@ -645,10 +645,8 @@ elseif s:complete_plugin == 4
     Plug 'Shougo/neocomplete'
     Plug 'tracyone/dict'
     Plug 'Konfekt/FastFold'
-    Plug 'Shougo/neco-vim'
 elseif s:complete_plugin == 5
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neco-vim'
     Plug 'zchee/deoplete-clang'
 elseif s:complete_plugin == 6
     Plug 'snakeleon/YouCompleteMe-x86', { 'on': [] }
@@ -659,6 +657,7 @@ elseif s:complete_plugin == 7
 else
     call te#utils#EchoWarning('No complete plugin selected!')
 endif
+Plug 'Shougo/neco-vim'
 
 Plug 'tracyone/hex2ascii.vim', { 'do': 'make' }
 Plug 'thinca/vim-qfreplace'
@@ -984,8 +983,10 @@ if s:complete_plugin == 1 || s:complete_plugin ==6 || s:complete_plugin == 7
                 \     'php' : ['->', '::', '.'],
                 \     'cs,java,javascript,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
                 \     'ruby' : ['.', '::'],
-                \     'lua' : ['.', ':']
+                \     'lua' : ['.', ':'],
+                \     'vim' : ['$', '&', 're![\w&$<-][\w:#<>-]*']
                 \ }
+
     let g:ycm_collect_identifiers_from_tag_files = 1
     let g:ycm_filetype_blacklist = {
                 \ 'tagbar' : 1,
