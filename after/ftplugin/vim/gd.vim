@@ -23,7 +23,7 @@ function! s:goto_definition(name)
     let path = s:_get_file_path_from_autoload_name(a:name)
     let real_path = get(s:_runtime_globpath(path), 0)
 
-    if real_path =~ expand("%:p")
+    if real_path =~ expand('%:p')
       normal! m'
       return 'call search(''fu\%[nction]!\?\s\+\zs'.a:name.''')'
     else
