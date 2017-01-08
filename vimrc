@@ -274,7 +274,7 @@ set winaltkeys=no
 
 "leader key
 let g:mapleader="\<Space>"
-let g:maplocalleader=","
+let g:maplocalleader=','
 inoremap jj <c-[>
 
 vnoremap [p "0p
