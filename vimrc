@@ -1111,6 +1111,22 @@ elseif s:complete_plugin == 5
      endif
     let g:deoplete#enable_at_startup = 1
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+    let g:deoplete#sources#clang#flags=[]
+    function! TracyoneAddCFlags(dir)
+        let l:dir=a:dir.'/'
+        if strlen(a:dir) == 0
+            let l:dir=getcwd().'/'
+        endif
+        if empty(glob(l:dir.'.clang_complete'))
+           return 1 
+        else
+            for s:line in readfile(l:dir.'.clang_complete', '')
+                :call add(g:deoplete#sources#clang#flags,matchstr(s:line,"\\v[^']+"))
+            endfor
+        endif
+        return 0
+    endfunction
+    :call TracyoneAddCFlags('')
 endif
 "}}}
 
