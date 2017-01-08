@@ -53,6 +53,8 @@ function! te#git#GetRemoteBr(A,L,P) abort
         call te#utils#EchoWarning('No remote name found!')
         return 1
     endif
+    " avoid warning..
+    let l:result=l:temp 
     let l:result=''
     for l:str in l:all_remote_name
         let l:result.=substitute(l:str,'.*/','','')."\n"
