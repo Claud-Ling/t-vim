@@ -241,14 +241,19 @@ endif
 "}}}
 "Key mapping{{{
 
+let g:keymap_list=[]
 " normal no remap function
 " maptype:type of keymap,nnoremap, map ie.
 " keycodes:such as <C-d>
 " action: map action.
-function! TracyoneKeyMap(maptype,keycodes,action)
+function! TracyoneKeyMap(maptype,keycodes,action,...)
     execute a:maptype.' '.a:keycodes.' '.a:action
+    if a:0 == 1
+        call add(g:keymap_list,a:1."\t".a:action)
+    endif
 endfunction
 
+command! CtrlPFuck call te#key#command()
 "map jj to esc..
 "fuck the meta key...
 if s:is_nvim != 1
@@ -305,7 +310,7 @@ elseif s:is_gui || s:is_nvim "gvim or neovim
                 \,'o':'<m-o>','-':'<m-->','b':'<m-b>','f':'<m-f>','m':'<m-m>','w':'<m-w>'}
 endif
 
-call TracyoneKeyMap('noremap',s:alt_char[1],'<esc>1gt')
+call TracyoneKeyMap('noremap',s:alt_char[1],'<esc>1gt','switch to tab 1')
 call TracyoneKeyMap('noremap',s:alt_char[2],'<esc>2gt')
 call TracyoneKeyMap('noremap',s:alt_char[3],'<esc>3gt')
 call TracyoneKeyMap('noremap',s:alt_char[4],'<esc>4gt')
@@ -315,7 +320,7 @@ call TracyoneKeyMap('noremap',s:alt_char[7],'<esc>7gt')
 call TracyoneKeyMap('noremap',s:alt_char[8],'<esc>8gt')
 call TracyoneKeyMap('noremap',s:alt_char[9],'<esc>9gt')
 "option+t
-call TracyoneKeyMap('nnoremap',s:alt_char['t'],':tabnew<cr>')
+call TracyoneKeyMap('nnoremap',s:alt_char['t'],':tabnew<cr>','new tab')
 call TracyoneKeyMap('inoremap',s:alt_char['t'],'<esc>:tabnew<cr>')
 "option+q
 call TracyoneKeyMap('noremap',s:alt_char['q'],':nohls<CR>:MarkClear<cr>:redraw!<cr>')
@@ -335,7 +340,7 @@ call TracyoneKeyMap('inoremap',s:alt_char['j'],'<Down>')
 call TracyoneKeyMap('inoremap',s:alt_char['k'],'<Up>')
 
 "move between windows
-call TracyoneKeyMap('nnoremap',s:alt_char['h'],'  <C-w>h')
+call TracyoneKeyMap('nnoremap',s:alt_char['h'],'  <C-w>h','Move win to right')
 call TracyoneKeyMap('nnoremap',s:alt_char['l'],'<C-w>l')
 call TracyoneKeyMap('nnoremap',s:alt_char['j'],'<C-w>j')
 call TracyoneKeyMap('nnoremap',s:alt_char['k'],'<C-w>k')
@@ -345,7 +350,7 @@ call TracyoneKeyMap('cnoremap',s:alt_char['j'],'<down>')
 call TracyoneKeyMap('cnoremap',s:alt_char['k'],'<up>')
 call TracyoneKeyMap('cnoremap',s:alt_char['b'],'<S-left>')
 
-call TracyoneKeyMap('nnoremap',s:alt_char['m'],':call MouseToggle()<cr>')   
+call TracyoneKeyMap('nnoremap',s:alt_char['m'],":call te#utils#OptionToggle('mouse',['a',''])<cr>",'mouse toggle')   
 " Mouse mode toggle
 nnoremap <leader>tm :call te#utils#OptionToggle('mouse',['a',''])<cr>
 " }}}
@@ -728,6 +733,7 @@ else
     Plug 'mattn/ctrlp-register',{'on': 'CtrlPRegister'}
 endif
 Plug 'vim-scripts/The-NERD-Commenter'
+Plug 'mattn/ctrlp-mark'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-surround'

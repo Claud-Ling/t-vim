@@ -1,4 +1,3 @@
-
 " name :s:TracyoneGetError
 " arg  :command,vim command(not shell command) that want to
 "       test execute status
