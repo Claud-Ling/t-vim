@@ -33,7 +33,7 @@ function! te#key#accept(mode, str)
     if  matchstr(a:str,'\(\t\)\@<=[^<]') ==# ''
         exe matchstr(a:str, '\(\t\)\@<=.*\(<[cC][rR]>\)\@=')
     else
-        exec "normal".feedkeys(escape(matchstr(a:str, '\(\t\)\@<=.*$'),'<'))
+        exec "normal".eval('"'.escape(matchstr(a:str, '\(\t\)\@<=.*$'),'<').'"')
     endif
 endfunction
 
